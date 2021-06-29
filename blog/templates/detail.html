@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lumen/bootstrap.min.css" integrity="sha384-GzaBcW6yPIfhF+6VpKMjxbTx6tvR/yRd/yJub90CqoIn2Tz4rRXlSpTFYMKHCifX" crossorigin="anonymous">
+    <style>
+        body{text-align: center;}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href={% url 'home' %}>CRUD</a>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                    <a class="nav-link activate" href="{% url 'new' %}">새글쓰기</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <div class="container">
+        <h1 class="text-warning">{{blog.title}}</h1>
+        <div>
+            작성자 : {{blog.writer}}<br>
+            날짜 : {{blog.pup_date}}
+        </div>
+        <hr>
+        <p>{{blog.body}}</p>
+        <a href="{% url 'edit' blog.id %}">수정하기</a> /  
+        <a href="{% url 'delete' blog.id %}">삭제하기</a>
+    <div>
+</body>
+</html>
