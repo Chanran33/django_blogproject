@@ -1,0 +1,26 @@
+{
+  "name": "blogproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chanran33/django_blogproject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chanran33/django_blogproject/issues"
+  },
+  "homepage": "https://github.com/Chanran33/django_blogproject#readme",
+  "devDependencies": {
+    "grunt": "^1.4.1",
+    "grunt-contrib-uglify": "^5.0.1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.0.2"
+  }
+}

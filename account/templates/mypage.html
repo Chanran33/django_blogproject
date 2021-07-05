@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+    <br>
+    <div class="container">
+        {% if user.is_authenticated %}
+            <h1><span class="text-success">{{user.nickname}}</span><small>님의 회원정보입니다.</small></h1>
+            <hr>
+            <table class="table">
+            <tbody>
+                <tr class="table-light">
+                <th scope="col">회원 ID</th>
+                <th scope="col">{{user.username}}</th>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr class="table-light">
+                <th scope="row">회원 닉네임</th>
+                <td>{{user.nickname}}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr class="table-light">
+                <th scope="row">대학교</th>
+                <td>{{user.university}}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr class="table-light">
+                <th scope="row">사는 곳</th>
+                <td>{{user.location}}</td>
+                </tr>
+            </tbody>
+            </table>
+            <div class="d-grid gap-2">
+            <a href="{% url 'home' %}"><button class="btn btn-lg btn-primary" type="button">확인</button></a>
+            </div>
+        {% else %}
+                <small>로그인해주세요</small>
+                <hr>
+        {% endif %}
+
+    </div>
+{% endblock %}
