@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-import django_heroku
+# import django_heroku
 import dj_database_url
 import os
 from pathlib import Path
@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get(
     'SECRET_KEY','django-insecure-r)f$-detb2e#418rvlroge&bg3y6&ipdvonrkg5&-o$w4)466k')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = (os.environ.get('DEBUG', 'True') != 'False')
+DEBUG = (os.environ.get('DEBUG','True') != 'False')
 
 ALLOWED_HOSTS = ['*']
 
@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap5',
     'blog.apps.BlogConfig',
-    'account.apps.AccountConfig'
+    'account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [
@@ -149,8 +149,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # 미디어 파일의 URL을 설정하는 곳
 MEDIA_URL = '/media/'
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 #AWS
@@ -160,10 +158,9 @@ AWS_STORAGE_BUCKET_NAME = '2021-likelion-djangoblog'
 
 AWS_S3_SIGNATURE_VERSION = 's3v4'
 AWS_S3_REGION_NAME = 'ap-northeast-2'
-# AWS_S3_CUSTOM_DOMAIN
 
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
