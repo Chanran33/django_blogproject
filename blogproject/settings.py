@@ -9,6 +9,8 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import django_heroku
+import dj_database_url
 import os
 from pathlib import Path
 
@@ -133,6 +135,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'blog', 'static')
 ]
 
+STATIC_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 #static 파일을 어디에 모을건지 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
@@ -158,6 +162,8 @@ AWS_S3_SIGNATURE_VERSION = 's3v4'
 AWS_S3_REGION_NAME = 'ap-northeast-2'
 # AWS_S3_CUSTOM_DOMAIN
 
-import dj_database_url
+
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+
+django_heroku.settings(locals())
